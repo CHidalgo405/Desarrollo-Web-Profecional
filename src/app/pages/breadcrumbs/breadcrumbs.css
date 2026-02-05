@@ -1,0 +1,174 @@
+.crumb-page-container {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  color: var(--text-main);
+}
+
+.page-header { text-align: center; margin-bottom: 3rem; }
+.page-header h1 { font-family: 'Outfit'; font-size: 3rem; font-weight: 700; }
+.text-gradient { background: linear-gradient(to right, #4ade80, #6366f1); -webkit-background-clip: text; color: transparent; }
+
+/* --- DEMO STAGE (El navegador falso) --- */
+.demo-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.browser-mockup {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+}
+
+/* 1. Barra del Breadcrumb */
+.demo-breadcrumb-bar {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.label-hint {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #64748b;
+  font-weight: 700;
+}
+
+nav[aria-label="breadcrumb"] ol {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+nav[aria-label="breadcrumb"] li {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  font-family: 'Inter';
+}
+
+/* Estilos de los eslabones */
+.crumb-link {
+  color: #94a3b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s;
+}
+.crumb-link:hover { color: #4ade80; text-decoration: underline; }
+
+.separator { color: #475569; margin: 0 8px; font-size: 1.1rem; }
+
+.crumb-current {
+  color: white;
+  font-weight: 600;
+  background: rgba(99, 102, 241, 0.2); /* Fondo sutil para el actual */
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* 2. Viewport (El contenido de abajo) */
+.demo-viewport {
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
+}
+
+.instruction { color: #94a3b8; margin-bottom: 1rem; }
+
+/* Botón de Carpeta Grande */
+.folder-btn {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s;
+}
+
+.folder-btn i { font-size: 2.5rem; color: #fbbf24; /* Color carpeta amarillo/dorado */ }
+
+.folder-btn:hover {
+  background: rgba(50, 60, 80, 0.9);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Vista Final (Archivo) */
+.file-view { text-align: center; animation: fadeIn 0.5s; }
+.success-icon { font-size: 3rem; color: #4ade80; margin-bottom: 1rem; }
+.reset-btn {
+  margin-top: 1rem;
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.caption { margin-top: 1rem; color: #64748b; font-size: 0.85rem; }
+
+/* --- THEORY CARDS --- */
+.theory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.theory-card {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 16px;
+  transition: transform 0.3s;
+}
+
+.theory-card:hover {
+  transform: translateY(-5px);
+  background: rgba(15, 23, 42, 0.6);
+  border-color: #6366f1;
+}
+
+.icon-header {
+  font-size: 2rem;
+  color: #6366f1;
+  margin-bottom: 1rem;
+}
+
+.theory-card h3 { font-family: 'Outfit'; margin-bottom: 0.5rem; }
+.theory-card p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; }
+
+/* Animaciones */
+.animate-fade-down { animation: fadeDown 0.8s ease-out; }
+.animate-fade-up { animation: fadeUp 0.8s ease-out 0.2s backwards; }
+.delay-1 { animation-delay: 0.3s; }
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }

@@ -1,1 +1,36 @@
-<p>error-404 works!</p>
+<div class="error-container">
+  
+  <div class="noise-overlay"></div>
+
+  <div class="content-box">
+    
+    <div class="glitch-wrapper">
+      <h1 class="glitch" data-text="404">404</h1>
+    </div>
+
+    <div class="status-card animate-fade-up">
+      <div class="terminal-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      
+      <h2><i class='bx bx-error-circle'></i> Anomalía Detectada</h2>
+      <p>
+        El recurso que intentas acceder ha sido desvinculado de la matriz, 
+        eliminado o nunca existió en esta línea temporal.
+      </p>
+
+      <div class="code-dump">
+        <span>Error: RESOURCE_NOT_FOUND</span>
+        <span>Sector: /undefined_void</span>
+        <span>Status: CRITICAL_FAILURE</span>
+      </div>
+
+      <button class="btn-glow" (click)="goHome()">
+        <i class='bx bx-refresh'></i> Reiniciar Sistema (Inicio)
+      </button>
+    </div>
+
+  </div>
+</div>

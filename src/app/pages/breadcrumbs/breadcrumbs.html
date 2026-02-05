@@ -1,1 +1,77 @@
-<p>breadcrumbs works!</p>
+<div class="crumb-page-container">
+
+  <header class="page-header animate-fade-down">
+    <h1>Rastro de <span class="text-gradient">Navegación</span></h1>
+    <p>El hilo de Ariadna digital: Ubicación, Jerarquía y Retorno.</p>
+  </header>
+
+  <section class="demo-stage animate-fade-up">
+    <div class="browser-mockup">
+      
+      <div class="demo-breadcrumb-bar">
+        <span class="label-hint">Estás aquí:</span>
+        
+        <nav aria-label="breadcrumb">
+          <ol>
+            <li *ngFor="let step of activePath; let last = last; let i = index" 
+                [class.active]="last">
+              
+              <a *ngIf="!last" (click)="jumpTo(i)" class="crumb-link">
+                <i class='bx' [ngClass]="step.icon"></i> {{ step.name }}
+              </a>
+
+              <span *ngIf="last" class="crumb-current">
+                <i class='bx' [ngClass]="step.icon"></i> {{ step.name }}
+              </span>
+
+              <i *ngIf="!last" class='bx bx-chevron-right separator'></i>
+            </li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="demo-viewport">
+        
+        <div *ngIf="currentLevel < fullPath.length - 1" class="folder-view">
+          <p class="instruction">Haz clic para entrar al siguiente nivel:</p>
+          <button class="folder-btn" (click)="goDeeper()">
+            <i class='bx' [ngClass]="fullPath[currentLevel + 1].icon"></i>
+            {{ fullPath[currentLevel + 1].name }}
+          </button>
+        </div>
+
+        <div *ngIf="currentLevel === fullPath.length - 1" class="file-view">
+          <i class='bx bx-check-circle success-icon'></i>
+          <h3>Destino Alcanzado</h3>
+          <p>Has navegado a través de toda la jerarquía.</p>
+          <button class="reset-btn" (click)="resetPath()">Volver al Inicio</button>
+        </div>
+
+      </div>
+    </div>
+    <small class="caption">Interactúa con las carpetas o los enlaces de arriba.</small>
+  </section>
+
+  <section class="theory-grid animate-fade-up delay-1">
+    
+    <article class="theory-card">
+      <div class="icon-header"><i class='bx bx-map'></i></div>
+      <h3>Ubicación</h3>
+      <p>Responde a la pregunta del usuario: <em>"¿En qué parte del sitio estoy?"</em>. Es vital en sitios profundos como e-commerce o documentación.</p>
+    </article>
+
+    <article class="theory-card">
+      <div class="icon-header"><i class='bx bx-undo'></i></div>
+      <h3>Retorno Rápido</h3>
+      <p>Permite subir un nivel (al padre) o saltar al inicio con un solo clic, reduciendo la cantidad de veces que se usa el botón "Atrás" del navegador.</p>
+    </article>
+
+    <article class="theory-card">
+      <div class="icon-header"><i class='bx bx-sitemap'></i></div>
+      <h3>Contexto</h3>
+      <p>Muestra la categoría a la que pertenece el contenido actual, ayudando al usuario a entender la estructura lógica de la información.</p>
+    </article>
+
+  </section>
+
+</div>
