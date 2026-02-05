@@ -1,0 +1,111 @@
+<div class="menu-page-container">
+
+  <header class="page-header animate-fade-down">
+    <h1>Protocolos de <span class="text-gradient">Navegación</span></h1>
+    <p>Explorando los patrones de interfaz humano-máquina (HMI).</p>
+  </header>
+
+  <div class="playground-layout animate-fade-up">
+    
+    <nav class="tabs-nav">
+      <button 
+        class="tab-btn" 
+        [class.active]="activeTab === 'horizontal'"
+        (click)="setTab('horizontal')">
+        <i class='bx bx-minus'></i> Barra Superior
+      </button>
+      <button 
+        class="tab-btn" 
+        [class.active]="activeTab === 'sidebar'"
+        (click)="setTab('sidebar')">
+        <i class='bx bx-dock-left'></i> Sidebar Vertical
+      </button>
+      <button 
+        class="tab-btn" 
+        [class.active]="activeTab === 'mobile'"
+        (click)="setTab('mobile')">
+        <i class='bx bx-menu'></i> Menú Móvil
+      </button>
+    </nav>
+
+    <div class="demo-screen">
+      
+      <div *ngIf="activeTab === 'horizontal'" class="demo-content horizontal-mode">
+        <nav class="fake-navbar">
+          <div class="fake-brand">Logo</div>
+          <div class="fake-links">
+            <span *ngFor="let link of demoLinks">{{ link.label }}</span>
+          </div>
+          <div class="fake-user"><i class='bx bx-user-circle'></i></div>
+        </nav>
+        <div class="fake-body">
+          <h3>Navegación Horizontal</h3>
+          <p>El estándar clásico. Ideal para sitios con pocas secciones principales. Se mantiene visible al hacer scroll (Sticky).</p>
+        </div>
+      </div>
+
+      <div *ngIf="activeTab === 'sidebar'" class="demo-content sidebar-mode">
+        <aside class="fake-sidebar" [class.collapsed]="isSidebarCollapsed">
+          <div class="sidebar-header">
+            <i class='bx bxs-component brand-icon'></i>
+            <span class="brand-text">SysAdmin</span>
+          </div>
+          <ul class="sidebar-list">
+            <li *ngFor="let link of demoLinks">
+              <i class='bx' [ngClass]="link.icon"></i>
+              <span class="link-text">{{ link.label }}</span>
+            </li>
+          </ul>
+          <button class="toggle-btn" (click)="toggleSidebar()">
+            <i class='bx' [ngClass]="isSidebarCollapsed ? 'bx-chevron-right' : 'bx-chevron-left'"></i>
+          </button>
+        </aside>
+        
+        <div class="fake-body">
+          <h3>Sidebar Vertical</h3>
+          <p>Común en Dashboards y aplicaciones complejas. Permite alojar muchos enlaces y se puede colapsar para ganar espacio.</p>
+          <button class="btn-action" (click)="toggleSidebar()">
+            {{ isSidebarCollapsed ? 'Expandir' : 'Colapsar' }} Menú
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf="activeTab === 'mobile'" class="demo-content mobile-mode">
+        <div class="mobile-header">
+          <span>App Móvil</span>
+          <i class='bx bx-menu burger-icon' (click)="toggleMobileMenu()"></i>
+        </div>
+
+        <div class="mobile-overlay" [class.open]="isMobileMenuOpen">
+          <div class="close-btn" (click)="toggleMobileMenu()"><i class='bx bx-x'></i></div>
+          <div class="overlay-links">
+            <a *ngFor="let link of demoLinks" (click)="toggleMobileMenu()">{{ link.label }}</a>
+          </div>
+        </div>
+
+        <div class="fake-body">
+          <h3>Menú Hamburguesa</h3>
+          <p>La solución estándar para pantallas pequeñas. Oculta la navegación detrás de un icono para maximizar el área de contenido.</p>
+          <button class="btn-action" (click)="toggleMobileMenu()">Abrir Menú</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="info-panel">
+      <h3><i class='bx bx-bulb'></i> Principios UX</h3>
+      <ul>
+        <li>
+          <strong>Visibilidad:</strong> El usuario siempre debe saber dónde está (Breadcrumbs) y a dónde puede ir.
+        </li>
+        <li>
+          <strong>Consistencia:</strong> El menú no debe cambiar de lugar ni de orden entre páginas.
+        </li>
+        <li>
+          <strong>Feedback:</strong> Los enlaces activos deben brillar o cambiar de color para indicar la ubicación actual.
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>

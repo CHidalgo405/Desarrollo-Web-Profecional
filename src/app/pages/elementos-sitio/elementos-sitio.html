@@ -1,0 +1,65 @@
+<div class="elements-container">
+
+  <header class="page-header animate-fade-down">
+    <h1>Sistema de <span class="text-gradient">Diseño</span></h1>
+    <p>Documentación técnica de los componentes visuales utilizados en este proyecto.</p>
+  </header>
+
+  <div class="grid-layout animate-fade-up">
+    
+    <article class="doc-card" *ngFor="let item of elements">
+      
+      <div class="doc-info">
+        <div class="card-badge">{{ item.category }}</div>
+        <h2>
+          <i class='bx' [ngClass]="item.icon"></i>
+          {{ item.title }}
+        </h2>
+        
+        <div class="explanation-group">
+          <div class="exp-item">
+            <span class="label">¿Por qué se usa?</span>
+            <p>{{ item.description }}</p>
+          </div>
+          <div class="exp-item">
+            <span class="label">¿Cómo se hizo?</span>
+            <p class="tech-text">{{ item.technical }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="doc-preview">
+        <div class="preview-stage">
+          
+          <div *ngIf="item.demoType === 'card'" class="demo-card">
+            <h3>Título de Ejemplo</h3>
+            <p>Este es un contenedor translúcido sobre el fondo.</p>
+          </div>
+
+          <button *ngIf="item.demoType === 'button'" class="btn-glow">
+            Acción Principal <i class='bx bx-right-arrow-alt'></i>
+          </button>
+
+          <h1 *ngIf="item.demoType === 'text'" class="demo-text">
+            Texto <span class="gradient">Impactante</span>
+          </h1>
+
+          <div *ngIf="item.demoType === 'badge'" class="badges-group">
+            <span class="badge tech">Dev</span>
+            <span class="badge game">Gaming</span>
+            <span class="badge anime">Anime</span>
+          </div>
+
+          <div *ngIf="item.demoType === 'input'" class="demo-input-wrapper">
+            <i class='bx bx-search'></i>
+            <input type="text" placeholder="Escribe aquí...">
+          </div>
+
+        </div>
+        <small class="preview-label">Vista Previa</small>
+      </div>
+
+    </article>
+
+  </div>
+</div>

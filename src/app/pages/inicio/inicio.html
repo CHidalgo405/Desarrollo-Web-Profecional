@@ -1,0 +1,71 @@
+<div class="home-container">
+
+    <section class="hero animate-fade-down">
+        <div class="hero-content">
+            <span class="pill-badge">Producto y desempeño</span>
+            <h1>
+                Construyendo el <br>
+                <span class="text-gradient">Futuro Digital</span>
+            </h1>
+            <p class="hero-desc">
+                Tu centro de comando para arquitectura de software,
+                análisis de videojuegos y cultura geek. Todo en un solo lugar.
+            </p>
+
+            <div class="cta-group">
+                <a routerLink="/busqueda" class="btn-primary-glow">
+                    Explorar Contenido <i class='bx bx-rocket'></i>
+                </a>
+                <a routerLink="/mapa-sitio" class="btn-secondary">
+                    Ver Mapa <i class='bx bx-map-alt'></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="hero-visual animate-fade-up">
+            <i class='bx bx-cube-alt floating-cube'></i>
+        </div>
+    </section>
+
+    <section class="categories-grid animate-fade-up delay-1">
+        <div class="cat-card tech">
+            <div class="icon-box"><i class='bx bx-code-alt'></i></div>
+            <h3>Dev & Code</h3>
+            <p>Angular, Patrones y Arquitectura.</p>
+        </div>
+        <div class="cat-card gaming">
+            <div class="icon-box"><i class='bx bx-joystick'></i></div>
+            <h3>Gaming</h3>
+            <p>Análisis de diseño y mecánicas.</p>
+        </div>
+        <div class="cat-card anime">
+            <div class="icon-box"><i class='bx bx-tv'></i></div>
+            <h3>Anime</h3>
+            <p>Reseñas y estética cyberpunk.</p>
+        </div>
+    </section>
+
+    <section class="latest-section animate-fade-up delay-2">
+        <div class="section-header">
+            <h2>Tendencias Recientes</h2>
+            <a routerLink="/busqueda" class="view-all">Ver todo <i class='bx bx-right-arrow-alt'></i></a>
+        </div>
+
+        <div class="cards-grid">
+            <article class="content-card" *ngFor="let item of featuredContent">
+                <div class="card-header">
+                    <span class="badge" [ngClass]="item.section.toLowerCase()">{{ item.section }}</span>
+                </div>
+                <div class="card-body">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description | slice:0:80 }}...</p>
+                </div>
+                <div class="card-footer">
+                    <a [routerLink]="item.path">Leer ahora</a>
+                    <i class='bx bx-chevron-right'></i>
+                </div>
+            </article>
+        </div>
+    </section>
+
+</div>

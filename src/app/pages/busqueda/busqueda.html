@@ -1,0 +1,43 @@
+<div class="search-container">
+  <header class="search-header">
+    <h1 class="animate-fade-down">Explora el <span class="text-gradient">Nexo Digital</span></h1>
+    <p class="subtitle animate-fade-down delay-1">Informática, Cultura Geek y Desarrollo.</p>
+    
+    <div class="search-bar-wrapper animate-fade-up delay-2">
+      <i class='bx bx-search search-icon'></i>
+      <input 
+        type="text" 
+        placeholder="¿Qué conocimiento buscas hoy?" 
+        class="search-input"
+        (keyup)="onSearch($event)" >
+      <button class="btn-glow">Buscar</button>
+    </div>
+
+    <div class="filters animate-fade-up delay-3">
+  <span class="filter-label">Filtrar por:</span>
+  
+  <button 
+    *ngFor="let cat of categories"
+    class="chip" 
+    [class.active]="currentCategory === cat" 
+    (click)="selectCategory(cat)">
+    {{ cat }}
+  </button>
+</div>
+  </header>
+
+  <section class="results-grid">
+    <article class="result-card" *ngFor="let item of filteredResults"> <div class="card-content">
+        <span class="category-badge" [ngClass]="item.section.toLowerCase()">{{item.section}}</span>
+        <h3>{{item.title}}</h3>
+        <p>{{item.description}}</p>
+        <div class="tags">
+          <span *ngFor="let tag of item.keywords">#{{tag}}</span>
+        </div>
+      </div>
+      <div class="card-action">
+        <a [routerLink]="item.path" class="read-more">Leer más <i class='bx bx-right-arrow-alt'></i></a>
+      </div>
+    </article>
+  </section>
+</div>

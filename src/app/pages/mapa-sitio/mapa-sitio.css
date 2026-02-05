@@ -1,0 +1,231 @@
+:host {
+  --line-color: rgba(99, 102, 241, 0.3); /* Color de las líneas de conexión */
+  --line-width: 2px;
+}
+
+.sitemap-container {
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: var(--text-main);
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.page-header h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.page-header p {
+  color: var(--text-muted);
+}
+
+/* --- ESTRUCTURA DEL ÁRBOL --- */
+.tree-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.tree-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* Las líneas verticales del árbol */
+.tree-list ul {
+  display: flex;
+  flex-direction: row; /* Los hijos se expanden horizontalmente */
+  justify-content: center;
+  padding-top: 2rem;
+  position: relative;
+  gap: 2rem; /* Espacio entre ramas */
+}
+
+/* Línea vertical arriba de los hijos */
+.tree-list ul::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-left: var(--line-width) solid var(--line-color);
+  height: 2rem;
+  transform: translateX(-50%);
+}
+
+.tree-item {
+  position: relative;
+  text-align: center;
+}
+
+/* Conectores horizontales para hermanos */
+/* Solo aplicamos esto si el item está dentro de un UL anidado (es hijo) */
+.children-container .tree-list .tree-item::before {
+  content: '';
+  position: absolute;
+  top: -2rem; /* Sube a la línea del padre */
+  left: 0;
+  width: 100%;
+  height: 2rem;
+  border-top: var(--line-width) solid var(--line-color);
+}
+
+/* Corrección de líneas para el primer y último hijo (para que no sobre línea) */
+.children-container .tree-list .tree-item:first-child::before {
+  left: 50%;
+  width: 50%;
+}
+.children-container .tree-list .tree-item:last-child::before {
+  right: 50%;
+  width: 50%;
+}
+
+/* La línea vertical que baja hacia la tarjeta */
+.children-container .tree-list .tree-item::after {
+  content: '';
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  border-left: var(--line-width) solid var(--line-color);
+  height: 2rem;
+  transform: translateX(-50%);
+}
+
+/* --- DISEÑO DE LA TARJETA (NODO) --- */
+.node-card {
+  display: inline-block;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0;
+  min-width: 220px;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.node-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border-color: #6366f1;
+}
+
+/* Contenido interno */
+.node-content {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  text-decoration: none;
+  color: inherit;
+  text-align: left;
+  gap: 1rem;
+}
+
+.node-content.static {
+  cursor: default;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.icon-box {
+  font-size: 1.5rem;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.node-card:hover .icon-box {
+  background: rgba(99, 102, 241, 0.2);
+  color: #6366f1;
+}
+
+.text-box h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-family: 'Outfit', sans-serif;
+}
+
+.text-box small {
+  display: block;
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 0.2rem;
+  line-height: 1.2;
+}
+
+.arrow-action {
+  margin-left: auto;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  color: #ec4899;
+}
+
+.node-card:hover .arrow-action {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+/* --- ESTILOS ESPECÍFICOS POR RAMA --- */
+.root-node .node-card { border-color: #6366f1; box-shadow: 0 0 15px rgba(99, 102, 241, 0.2); }
+
+.branch-structure .icon-box { color: #38bdf8; }
+.branch-explore .icon-box { color: #ec4899; }
+.branch-content .icon-box { color: #4ade80; }
+
+/* Responsive: En móviles, cambiamos a lista vertical simple */
+@media (max-width: 768px) {
+  .tree-list ul {
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 2rem; /* Indentación */
+    padding-top: 1rem;
+  }
+  
+  .tree-list ul::before {
+    left: 0;
+    height: 100%;
+    top: 0;
+    border-left: var(--line-width) solid var(--line-color);
+  }
+
+  .children-container .tree-list .tree-item::before,
+  .children-container .tree-list .tree-item::after {
+    display: none; /* Ocultar conectores complejos en móvil */
+  }
+
+  /* Nuevo conector simple para móvil */
+  .children-container .tree-list .tree-item::before {
+    display: block;
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 1.5rem;
+    width: 2rem;
+    height: 1px;
+    border-top: var(--line-width) solid var(--line-color);
+  }
+}
+
+/* Animaciones */
+.animate-fade-down { animation: fadeDown 0.8s ease-out; }
+.animate-fade-up { animation: fadeUp 0.8s ease-out 0.2s backwards; }
+
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }

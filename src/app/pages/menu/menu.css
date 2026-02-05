@@ -1,0 +1,158 @@
+.menu-page-container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: var(--text-main);
+}
+
+.page-header { text-align: center; margin-bottom: 3rem; }
+.page-header h1 { font-family: 'Outfit'; font-size: 3rem; font-weight: 700; }
+.text-gradient { background: linear-gradient(to right, #4ade80, #38bdf8); -webkit-background-clip: text; color: transparent; }
+
+/* --- PESTAÑAS --- */
+.tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tab-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+  font-family: 'Inter';
+}
+
+.tab-btn.active, .tab-btn:hover {
+  background: rgba(74, 222, 128, 0.1); /* Verde neón suave */
+  color: #4ade80;
+  border-color: #4ade80;
+}
+
+/* --- DEMO SCREEN (La caja simuladora) --- */
+.demo-screen {
+  background: #0f172a; /* Fondo oscuro interno */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  height: 400px; /* Altura fija para la demo */
+  position: relative;
+  overflow: hidden; /* Para que nada se salga de la caja */
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.5); /* Sombra interna para profundidad */
+  display: flex;
+  flex-direction: column;
+}
+
+.fake-body {
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.fake-body h3 { font-family: 'Outfit'; color: white; margin-bottom: 0.5rem; }
+.fake-body p { color: #94a3b8; max-width: 400px; margin-bottom: 1.5rem; }
+
+.btn-action {
+  background: #4ade80;
+  color: #0f172a;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ESTILOS ESPECÍFICOS DE LAS DEMOS */
+
+/* 1. Horizontal */
+.fake-navbar {
+  background: rgba(30, 41, 59, 0.9);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.fake-links span { margin: 0 10px; font-size: 0.8rem; color: #cbd5e1; cursor: pointer; }
+.fake-links span:hover { color: #4ade80; }
+
+/* 2. Sidebar */
+.sidebar-mode { display: flex; height: 100%; width: 100%; }
+.fake-sidebar {
+  width: 200px;
+  background: rgba(30, 41, 59, 0.95);
+  border-right: 1px solid rgba(255,255,255,0.1);
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.fake-sidebar.collapsed { width: 60px; }
+.fake-sidebar.collapsed .brand-text, 
+.fake-sidebar.collapsed .link-text { display: none; }
+.fake-sidebar.collapsed .toggle-btn i { transform: rotate(180deg); } /* Corrección visual */
+
+.sidebar-header { margin-bottom: 2rem; display: flex; align-items: center; gap: 10px; color: #4ade80; font-weight: bold; }
+.sidebar-list { list-style: none; padding: 0; }
+.sidebar-list li { padding: 10px 0; color: #94a3b8; display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.sidebar-list li:hover { color: white; }
+.toggle-btn { margin-top: auto; background: none; border: 1px solid #475569; color: white; border-radius: 4px; cursor: pointer; }
+
+/* 3. Mobile */
+.mobile-mode { position: relative; height: 100%; }
+.mobile-header {
+  padding: 1rem;
+  background: #1e293b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.burger-icon { font-size: 1.5rem; cursor: pointer; }
+
+.mobile-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 10;
+}
+.mobile-overlay.open { transform: translateY(0); }
+.close-btn { position: absolute; top: 1rem; right: 1rem; font-size: 2rem; cursor: pointer; color: white; }
+.overlay-links a { font-size: 1.5rem; color: white; text-decoration: none; font-weight: 700; }
+.overlay-links a:hover { color: #4ade80; }
+
+/* --- INFO PANEL --- */
+.info-panel {
+  margin-top: 2rem;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+.info-panel h3 { color: #38bdf8; display: flex; align-items: center; gap: 10px; margin-top: 0; }
+.info-panel ul { margin-bottom: 0; padding-left: 1.2rem; color: #cbd5e1; }
+.info-panel li { margin-bottom: 0.5rem; }
+
+/* Animaciones */
+.animate-fade-down { animation: fadeDown 0.8s ease-out; }
+.animate-fade-up { animation: fadeUp 0.8s ease-out 0.2s backwards; }
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }

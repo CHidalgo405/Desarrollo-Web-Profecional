@@ -1,0 +1,45 @@
+<div class="sitemap-container">
+  
+  <header class="page-header animate-fade-down">
+    <h1>Topología del <span class="text-gradient">Sistema</span></h1>
+    <p>Visualización jerárquica de todos los módulos activos.</p>
+  </header>
+
+  <div class="tree-wrapper animate-fade-up">
+    
+    <ng-template #nodeTemplate let-nodes>
+      <ul class="tree-list">
+        <li *ngFor="let node of nodes" class="tree-item">
+          
+          <div class="node-card" [ngClass]="node.colorClass || ''">
+            
+            <a *ngIf="node.url; else textOnly" [routerLink]="node.url" class="node-content">
+              <div class="icon-box"><i class='bx' [ngClass]="node.icon"></i></div>
+              <div class="text-box">
+                <h3>{{ node.label }}</h3>
+                <small *ngIf="node.description">{{ node.description }}</small>
+              </div>
+              <i *ngIf="node.url" class='bx bx-chevron-right arrow-action'></i>
+            </a>
+
+            <ng-template #textOnly>
+              <div class="node-content static">
+                <div class="icon-box"><i class='bx' [ngClass]="node.icon"></i></div>
+                <div class="text-box"><h3>{{ node.label }}</h3></div>
+              </div>
+            </ng-template>
+
+          </div>
+
+          <div *ngIf="node.children" class="children-container">
+            <ng-container *ngTemplateOutlet="nodeTemplate; context:{ $implicit: node.children }"></ng-container>
+          </div>
+
+        </li>
+      </ul>
+    </ng-template>
+
+    <ng-container *ngTemplateOutlet="nodeTemplate; context:{ $implicit: siteMapData }"></ng-container>
+
+  </div>
+</div>

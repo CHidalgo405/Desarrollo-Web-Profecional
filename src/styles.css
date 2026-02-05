@@ -1,0 +1,29 @@
+/* --- RESET GLOBAL --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Esto es clave: El fondo base debe ser el mismo azul oscuro de tu tema */
+  background-color: #0f172a; 
+  color: #f8fafc;
+  
+  /* Tipografía base para que no dependa del componente */
+  font-family: 'Inter', sans-serif;
+}
+
+/* Opcional: Estilizar la barra de scroll para que combine */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a; 
+}
+::-webkit-scrollbar-thumb {
+  background: #334155; 
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569; 
+}

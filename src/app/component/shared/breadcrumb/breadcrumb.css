@@ -1,0 +1,60 @@
+.breadcrumb-container {
+  margin-bottom: 2rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
+
+/* Enlaces inactivos (pasos previos) */
+.crumb-link {
+  color: #94a3b8; /* Gris azulado apagado */
+  text-decoration: none;
+  transition: color 0.2s, text-shadow 0.2s;
+  position: relative;
+}
+
+.crumb-link:hover {
+  color: #6366f1; /* Indigo */
+  text-shadow: 0 0 8px rgba(99, 102, 241, 0.4);
+}
+
+.home-icon a {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+.home-icon a:hover {
+  color: #ec4899; /* Pink para el home */
+}
+
+/* Separador (>) */
+.separator-icon {
+  color: #475569; /* Gris oscuro */
+  font-size: 1.2rem;
+  margin: 0 0.5rem;
+}
+
+/* Página Actual */
+.crumb-text {
+  color: #f8fafc; /* Blanco brillante */
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+}

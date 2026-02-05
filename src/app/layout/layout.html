@@ -1,0 +1,62 @@
+<header class="glass-header">
+  <div class="container-fluid header-content">
+    
+    <a routerLink="/" class="brand">
+      <i class='bx bx-cube-alt brand-icon'></i>
+      Sitio<span class="text-gradient">Estructura</span>
+    </a>
+
+    <nav class="nav-menu">
+      <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }" class="nav-item">
+        <i class='bx bx-home-alt-2'></i> Inicio
+      </a>
+      <a routerLink="/elementos" routerLinkActive="active-link" class="nav-item">
+        <i class='bx bx-layer'></i> Elementos
+      </a>
+      <a routerLink="/menu" routerLinkActive="active-link" class="nav-item">
+        <i class='bx bx-list-ul'></i> Menú
+      </a>
+      <a routerLink="/breadcrumbs" routerLinkActive="active-link" class="nav-item">
+        <i class='bx bx-map-alt'></i> Breadcrumbs
+      </a>
+      <a routerLink="/mapa-sitio" routerLinkActive="active-link" class="nav-item">
+        <i class='bx bx-sitemap'></i> Mapa
+      </a>
+      <a routerLink="/busqueda" routerLinkActive="active-link" class="nav-item">
+        <i class='bx bx-search-alt'></i> Búsqueda
+      </a>
+    </nav>
+
+    <form class="mini-search" (submit)="$event.preventDefault(); goSearch()">
+      <i class='bx bx-search search-icon-mini'></i>
+      <input
+        type="text"
+        placeholder="Cmd + K..."
+        [(ngModel)]="quickQuery"
+        name="quickQuery"
+      />
+    </form>
+  </div>
+</header>
+
+<main class="main-wrapper">
+  <div class="bg-glow"></div>
+  
+  <div class="content-container">
+    <app-breadcrumb></app-breadcrumb>
+    
+    <div class="page-fade">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</main>
+
+<footer class="glass-footer">
+  <div class="footer-content">
+    <small>© 2026 Carlos Hidalgo Producto y desempeño. Desarrollo Web Profesional.</small>
+    <div class="socials">
+      <i class='bx bxl-github'></i>
+      <i class='bx bxl-twitter'></i>
+    </div>
+  </div>
+</footer>

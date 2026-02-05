@@ -1,0 +1,221 @@
+.elements-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: var(--text-main);
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.page-header h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.page-header p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+/* --- GRID PRINCIPAL --- */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+/* --- TARJETA DE DOCUMENTACIÓN --- */
+.doc-card {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* Info ocupa un poco más */
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden; /* Para que la imagen no se salga */
+  min-height: 300px;
+}
+
+/* LADO IZQUIERDO: INFO */
+.doc-info {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #ec4899;
+  border: 1px solid rgba(236, 72, 153, 0.3);
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  align-self: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.doc-info h2 {
+  font-family: 'Outfit';
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.doc-info h2 i { color: #6366f1; }
+
+.explanation-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+}
+
+.exp-item p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.tech-text {
+  font-family: 'Courier New', monospace; /* Fuente monoespaciada para código */
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  border-radius: 6px;
+  border-left: 3px solid #6366f1;
+}
+
+/* LADO DERECHO: PREVIEW */
+.doc-preview {
+  background: rgba(0, 0, 0, 0.2); /* Fondo un poco más oscuro */
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+}
+
+.preview-label {
+  position: absolute;
+  bottom: 1rem;
+  right: 1.5rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.preview-stage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- ESTILOS DE LAS DEMOS (Los componentes en sí) --- */
+
+/* Demo Card */
+.demo-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 80%;
+}
+.demo-card h3 { margin-top: 0; font-size: 1.2rem; }
+.demo-card p { font-size: 0.9rem; margin-bottom: 0; opacity: 0.7; }
+
+/* Demo Button */
+.btn-glow {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s;
+}
+.btn-glow:hover { transform: scale(1.05); }
+
+/* Demo Text */
+.demo-text { font-family: 'Outfit'; font-size: 2rem; }
+.demo-text .gradient {
+  background: linear-gradient(to right, #6366f1, #ec4899);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Demo Badges */
+.badges-group { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.badge.tech { color: #38bdf8; background: rgba(56, 189, 248, 0.15); }
+.badge.game { color: #4ade80; background: rgba(74, 222, 128, 0.15); }
+.badge.anime { color: #f472b6; background: rgba(244, 114, 182, 0.15); }
+
+/* Demo Input */
+.demo-input-wrapper {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 80%;
+}
+.demo-input-wrapper input {
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  width: 100%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .doc-card { grid-template-columns: 1fr; }
+  .doc-preview { border-left: none; border-top: 1px solid rgba(255,255,255,0.05); padding: 3rem 1rem; }
+}
+
+/* Animaciones */
+.animate-fade-down { animation: fadeDown 0.8s ease-out; }
+.animate-fade-up { animation: fadeUp 0.8s ease-out 0.2s backwards; }
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
